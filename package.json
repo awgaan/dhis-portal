@@ -1,6 +1,6 @@
 {
     "name": "dhis-portal",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "simple dhis2 instance proxy",
     "author": "Wahed Mangal",
     "keywords": [
@@ -21,6 +21,7 @@
     "bin": {
         "dhis-portal": "./dhis-portal.js"
     },
+    "main": "./dhis-portal.js",
     "license": "MIT",
     "devDependencies": {
         "@dhis2/cli-style": "^7.0.0"
@@ -28,6 +29,9 @@
     "dependencies": {
         "express": "^4.17.1",
         "http-proxy-middleware": "^1.0.5"
+    },
+    "engines": {
+        "node": ">=10"
     },
     "repository": {
         "url": "https://github.com/awgaan/dhis-portal",

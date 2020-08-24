@@ -11,7 +11,7 @@ problems](https://developers.dhis2.org/2020/08/cross-origin-cookies/).
 yarn global add dhis-portal
 
 // npm
-npm global install dhis-portal
+npm install --global dhis-portal
 ```
 
 ### Usage
