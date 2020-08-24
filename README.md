@@ -17,14 +17,14 @@ npm install --global dhis-portal
 ### Usage
 
 ```text
-USAGE: dhis2-portal --server=<server-name>
-                    --instance=<instance-name>
-                    [--target=<instance-url>]
-                    [--auth=auth]
-                    [--verbose]
+dhis2-portal --server=<server-name>
+             --instance=<instance-name>
+             [--target=<instance-url>]
+             [--auth=auth]
+             [--verbose]
 ```
 
-Example:
+#### Example
 
 ```shell
 $ dhis-portal --server=play --instance=dev
