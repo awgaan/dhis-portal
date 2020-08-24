@@ -17,7 +17,6 @@ npm install --global dhis-portal
 ### Usage
 
 ```text
-ERROR: target of portal not specified
 USAGE: dhis2-portal --server=<server-name>
                     --instance=<instance-name>
                     [--target=<instance-url>]
