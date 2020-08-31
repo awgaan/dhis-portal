@@ -19,6 +19,7 @@ npm install --global dhis-portal
 ```text
 dhis2-portal --server=<server-name>
              --instance=<instance-name>
+             [--port=<port>]
              [--target=<instance-url>]
              [--auth=auth]
              [--verbose]
@@ -27,6 +28,6 @@ dhis2-portal --server=<server-name>
 #### Example
 
 ```shell
-$ dhis-portal --server=play --instance=dev
-Portal from localhost:9999 -> https://play.dhis2.org/dev created!
+$ dhis-portal --server=play --instance=2.34.1
+Portal from localhost:9999 -> https://play.dhis2.org/2.34.1 created!
 ```
