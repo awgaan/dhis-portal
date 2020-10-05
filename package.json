@@ -1,6 +1,6 @@
 {
     "name": "dhis-portal",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "simple dhis2 instance proxy",
     "author": "Wahed Mangal",
     "keywords": [

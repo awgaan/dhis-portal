@@ -21,7 +21,6 @@ dhis2-portal --server=<server-name>
              --instance=<instance-name>
              [--port=<port>]
              [--target=<instance-url>]
-             [--auth=auth]
              [--verbose]
 ```
 

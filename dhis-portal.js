@@ -8,7 +8,6 @@ const defaultOpts = {
     server: null,
     instance: null,
     target: null,
-    auth: 'admin:district',
     port: 9999,
     verbose: false,
 }
@@ -40,11 +39,6 @@ const createOpts = args => {
             opts.target = target
         }
 
-        if (arg.indexOf('--auth=') > -1) {
-            const auth = arg.substring(7)
-            opts.auth = auth
-        }
-
         if (arg.indexOf('--verbose') > -1) {
             opts.verbose = true
         }
@@ -71,6 +65,19 @@ const verifyOpts = opts => {
     }
 }
 
+let sessionCookie = ''
+const onProxyReq = proxyReq => {
+    if (sessionCookie) {
+        proxyReq.setHeader('cookie', sessionCookie)
+    }
+}
+const onProxyRes = proxyRes => {
+    const proxyCookie = proxyRes.headers['set-cookie']
+    if (proxyCookie) {
+        sessionCookie = proxyCookie
+    }
+}
+
 const Portal = {
     start: (opts = defaultOpts) => {
         try {
@@ -86,8 +93,9 @@ const Portal = {
             createProxyMiddleware({
                 target: opts.target,
                 changeOrigin: true,
+                onProxyReq,
+                onProxyRes,
                 logLevel: opts.verbose ? 'debug' : 'silent',
-                auth: opts.auth,
             })
         )
 
@@ -102,7 +110,6 @@ const Portal = {
                     --instance=<instance-name>
                     [--port=<port>]
                     [--target=<instance-url>]
-                    [--auth=auth]
                     [--verbose]`
         )
     },
