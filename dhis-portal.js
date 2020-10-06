@@ -8,6 +8,7 @@ const defaultOpts = {
     server: null,
     instance: null,
     target: null,
+    auth: undefined,
     port: 9999,
     verbose: false,
 }
@@ -37,6 +38,11 @@ const createOpts = args => {
         if (arg.indexOf('--target=') > -1) {
             const target = arg.substring(9)
             opts.target = target
+        }
+
+        if (arg.indexOf('--auth=') > -1) {
+            const auth = arg.substring(7)
+            opts.auth = auth
         }
 
         if (arg.indexOf('--verbose') > -1) {
@@ -95,6 +101,7 @@ const Portal = {
                 changeOrigin: true,
                 onProxyReq,
                 onProxyRes,
+                auth: opts.auth,
                 logLevel: opts.verbose ? 'debug' : 'silent',
             })
         )
@@ -110,6 +117,7 @@ const Portal = {
                     --instance=<instance-name>
                     [--port=<port>]
                     [--target=<instance-url>]
+                    [--auth=auth]
                     [--verbose]`
         )
     },
