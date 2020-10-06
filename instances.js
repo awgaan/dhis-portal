@@ -29,7 +29,7 @@ const debugInstances = {
 }
 
 const courseInstances = {
-    course: 'https://course.dhis2.org/',
+    course: 'https://course.dhis2.org/hmis',
 }
 
 const instances = {
