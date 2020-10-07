@@ -68,6 +68,8 @@ const createOpts = args => {
 const verifyOpts = opts => {
     if (!opts.target && !opts.server && !opts.instance) {
         throw 'target of portal not specified'
+    } else if (!opts.target && opts.instance) {
+        throw 'server not specified'
     }
 }
 
@@ -107,7 +109,7 @@ const Portal = {
         )
 
         console.log(
-            `Portal from localhost:${opts.port} -> ${opts.target} created!`
+            `Portal from http://localhost:${opts.port} -> ${opts.target} created!`
         )
         app.listen(opts.port)
     },
