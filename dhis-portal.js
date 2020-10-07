@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const pkg = require('./package.json')
 const express = require('express')
 const { createProxyMiddleware } = require('http-proxy-middleware')
 const { getInstanceUrl } = require('./instances')
@@ -17,6 +18,12 @@ const createOpts = args => {
     const opts = { ...defaultOpts }
     for (let i = 0; i < args.length; i++) {
         const arg = args[i]
+
+        if (arg.indexOf('--version') > -1) {
+            console.log(pkg.version)
+            process.exit(0)
+        }
+
         if (arg.indexOf('--port=') > -1) {
             const portString = arg.substring(7)
             const portNumber = parseInt(portString, 10)
